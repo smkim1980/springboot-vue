@@ -3,3 +3,7 @@ spring:
     active: local
   pid:
     file: springboot-local-vue.pid
+
+springboot:
+  vue:
+    name: local-spring
