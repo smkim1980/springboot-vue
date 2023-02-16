@@ -13,7 +13,7 @@ import java.util.Map;
 public class SpringVueController {
 
     @Value("${spring.pid.file}")
-    String springPidFileName;
+    private String springPidFileName;
 
     @Value("${spring.profiles.active}")
     private String activeProfile;
