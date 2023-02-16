@@ -18,7 +18,7 @@ public class SpringVueController {
     @Value("${spring.profiles.active}")
     private String activeProfile;
 
-    @Value("${springboot.vue.name : local}")
+    @Value("${springboot.vue.name}")
     private String springbootVueName;
 
     @GetMapping("/active")
