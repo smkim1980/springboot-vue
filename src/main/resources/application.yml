@@ -2,4 +2,4 @@ spring:
   profiles:
     active: local
   pid:
-    file: springboot-vue.pid
+    file: ./springboot-vue.pid
