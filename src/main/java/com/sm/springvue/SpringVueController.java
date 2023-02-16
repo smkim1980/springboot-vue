@@ -19,7 +19,7 @@ public class SpringVueController {
     private String activeProfile;
 
 
-    @GetMapping
+    @GetMapping("/active")
     public Map<String ,String > getYml(){
 
         log.info("pid={},profile={}",springPidFileName,activeProfile);
