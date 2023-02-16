@@ -53,6 +53,9 @@ tasks.named('asciidoctor') {
 }
 
 bootJar {
+    archivesBaseName = "springboot-vue"
+    archiveFileName = "springboot-vue.jar"
+    archiveVersion =  "0.0.1"
     dependsOn asciidoctor
     copy {
         from asciidoctor.outputDir
