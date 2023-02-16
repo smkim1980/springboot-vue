@@ -1,6 +1,6 @@
 spring:
   pid:
-    file: springboot-dev-vue.pid
+    file: /opt/springboot-vue/springboot-dev-vue.pid
 
 
 springboot:
