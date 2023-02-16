@@ -18,6 +18,8 @@ public class SpringVueController {
     @Value("${spring.profiles.active}")
     private String activeProfile;
 
+    @Value("${springboot.vue.name : local}")
+    private String springbootVueName;
 
     @GetMapping("/active")
     public Map<String ,String > getYml(){
@@ -27,6 +29,7 @@ public class SpringVueController {
         Map<String,String> result = new HashMap<>();
         result.put("springPidFileName" , springPidFileName);
         result.put("activeProfile" , activeProfile);
+        result.put("springbootVueName" , springbootVueName);
 
         return result;
     }

@@ -1,3 +1,8 @@
 spring:
   pid:
     file: springboot-dev-vue.pid
+
+
+springboot:
+  vue:
+    name: dev-spring
