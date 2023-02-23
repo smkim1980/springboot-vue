@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <timestamp key="BY_DATE" datePattern="yyyy-MM-dd"/>
+
+    <property name="FILE_PATH" value="C:/study/logs"/>
+    <property name="RESOURCE_PATH" value="./config/logs"/>
+
+    <property name="LOG_PATTERN"
+              value="[%d{yyyy-MM-dd HH:mm:ss}:%-4relative] %green([%thread]) %highlight(%-5level) %boldWhite([%C.%M:%yellow(%L)]) - %msg%n"/>
+
+    <springProfile name="!(dev| prod)">
+        <include resource="${RESOURCE_PATH}/console-appender.xml"/>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <property name="FILE_PATH" value="/opt/logs"/>
+        <include resource="${RESOURCE_PATH}/file-info-appender.xml"/>
+        <include resource="${RESOURCE_PATH}/file-warn-appender.xml"/>
+        <include resource="${RESOURCE_PATH}/file-error-appender.xml"/>
+        <root level="INFO">
+            <appender-ref ref="FILE-INFO"/>
+            <appender-ref ref="FILE-WARN"/>
+            <appender-ref ref="FILE-ERROR"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <property name="FILE_PATH" value="/opt/logs"/>
+        <include resource="${RESOURCE_PATH}/file-info-appender.xml"/>
+        <include resource="${RESOURCE_PATH}/file-warn-appender.xml"/>
+        <include resource="${RESOURCE_PATH}/file-error-appender.xml"/>
+
+        <root level="WARN">
+            <appender-ref ref="FILE-INFO"/>
+            <appender-ref ref="FILE-WARN"/>
+            <appender-ref ref="FILE-ERROR"/>
+        </root>
+    </springProfile>
+</configuration>

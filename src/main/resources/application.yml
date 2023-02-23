@@ -1,9 +1,52 @@
+#default
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
 spring:
   profiles:
     active: local
   pid:
     file: springboot-local-vue.pid
+---
+#Local
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - classpath:/config/profiles/local/pid-local.yml
+      - optional:classpath:/config/profiles/local/local-db.yml
 
 springboot:
   vue:
     name: local-spring
+
+---
+#DEV
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import:
+      - classpath:/config/profiles/dev/pid-dev.yml
+      - optional:classpath:/config/profiles/dev/dev-db.yml
+
+springboot:
+  vue:
+    name: dev-spring
+
+---
+#PROD
+spring:
+  config:
+    activate:
+      on-profile: prod
+    import:
+      - classpath:/config/profiles/prod/pid-prod.yml
+      - optional:classpath:/config/profiles/prod/prod-db.yml
+
+springboot:
+  vue:
+    name: prod-spring

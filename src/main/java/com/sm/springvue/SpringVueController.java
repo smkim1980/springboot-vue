@@ -24,7 +24,9 @@ public class SpringVueController {
     @GetMapping("/active")
     public Map<String ,String > getYml(){
 
-        log.info("pid={},profile={}",springPidFileName,activeProfile);
+        log.info("INFO-pid={},profile={}",springPidFileName,activeProfile);
+        log.warn("WARN-pid={},profile={}",springPidFileName,activeProfile);
+        log.error("ERROR-pid={},profile={}",springPidFileName,activeProfile);
 
         Map<String,String> result = new HashMap<>();
         result.put("springPidFileName" , springPidFileName);
